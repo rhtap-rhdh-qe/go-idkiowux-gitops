@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-idkiowux-gitops
+  description: This is GitOps manifest for go-idkiowux   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-idkiowux
+    backstage.io/kubernetes-id: go-idkiowux 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-idkiowux
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-idkiowux
